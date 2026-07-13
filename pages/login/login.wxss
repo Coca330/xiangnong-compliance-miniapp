@@ -1,0 +1,106 @@
+/**
+ * 登录页样式 - 乡农合规通
+ * 白色背景居中布局，简洁大方的登录体验
+ */
+
+/* 页面容器：白色背景 */
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ====== 顶部Logo区域 ====== */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120rpx;
+  margin-bottom: 100rpx;
+}
+
+/* Logo图标容器 */
+.logo-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(135deg, #2B8C5A, #1E6B42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+}
+
+.logo-emoji {
+  font-size: 64rpx;
+}
+
+/* 应用名称 */
+.app-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #2B8C5A;
+  margin-bottom: 12rpx;
+}
+
+/* 功能说明 */
+.app-desc {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+/* ====== 登录按钮区域 ====== */
+.login-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60rpx;
+}
+
+/* 登录按钮通用样式 */
+.login-btn {
+  width: 80%;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 48rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+/* 清除按钮默认边框 */
+.login-btn::after {
+  border: none;
+}
+
+/* 手机号快捷登录：绿色实心主按钮 */
+.phone-btn {
+  background: linear-gradient(135deg, #2B8C5A, #1E6B42);
+  color: #ffffff;
+  box-shadow: 0 6rpx 20rpx rgba(43, 140, 90, 0.3);
+}
+
+/* 微信一键登录：白色描边按钮 */
+.wx-btn {
+  background: #ffffff;
+  color: #2B8C5A;
+  border: 2rpx solid #2B8C5A;
+}
+
+/* ====== 底部隐私协议 ====== */
+.agreement-section {
+  position: fixed;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.agreement-text {
+  font-size: 24rpx;
+  color: #999999;
+}
