@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "乡农合规通",
+  "usingComponents": {
+    "risk-badge": "/components/risk-badge/risk-badge"
+  }
+}
