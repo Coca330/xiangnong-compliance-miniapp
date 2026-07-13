@@ -1,0 +1,191 @@
+/* 法规知识库页面样式 */
+
+/* 页面容器 */
+.knowledge-container {
+  min-height: 100vh;
+  background-color: #F5F6F8;
+  padding-bottom: 40rpx;
+}
+
+/* ========== 搜索栏 ========== */
+.search-bar {
+  position: relative;
+  margin: 24rpx 24rpx 0;
+  background-color: #ffffff;
+  border-radius: 999rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 搜索图标（绝对定位在左侧） */
+.search-icon {
+  position: absolute;
+  left: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon-search {
+  font-size: 30rpx;
+  color: #999999;
+}
+
+/* 搜索输入框 */
+.search-input {
+  flex: 1;
+  height: 80rpx;
+  padding-left: 60rpx;
+  padding-right: 80rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+/* 输入框placeholder样式 */
+.search-placeholder {
+  color: #bbbbbb;
+  font-size: 28rpx;
+}
+
+/* 语音输入按钮（搜索框右侧绝对定位） */
+.voice-btn {
+  position: absolute;
+  right: 8rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-icon {
+  font-size: 32rpx;
+}
+
+/* ========== 热门分类标签 ========== */
+.hot-tags-scroll {
+  margin-top: 24rpx;
+  white-space: nowrap;
+}
+
+/* 标签容器（flex不换行） */
+.hot-tags-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 24rpx;
+  gap: 16rpx;
+}
+
+/* 单个热门标签 */
+.hot-tag {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  background-color: #e8f5e9;
+  color: #2B8C5A;
+  font-size: 26rpx;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+/* 标签选中状态 */
+.hot-tag-active {
+  background-color: #2B8C5A;
+  color: #ffffff;
+}
+
+/* ========== 搜索结果/推荐列表 ========== */
+.result-list {
+  margin-top: 16rpx;
+}
+
+/* 结果卡片 */
+.result-card {
+  position: relative;
+  margin: 24rpx;
+  padding: 28rpx 32rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* 法规名称 - 粗体，单行不换行 */
+.result-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 160rpx;
+}
+
+/* 条款摘要 - 灰色，两行省略 */
+.result-summary {
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 1.6;
+  margin-top: 12rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 来源标签（右上角） */
+.source-tag {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 20rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+/* 来源标签 - 国家法律 */
+.source-tag-law {
+  background-color: #2B8C5A;
+}
+
+/* 来源标签 - GB标准 */
+.source-tag-gb {
+  background-color: #1890ff;
+}
+
+/* 来源标签 - 地方法规 */
+.source-tag-local {
+  background-color: #fa8c16;
+}
+
+/* 来源标签 - 典型案例 */
+.source-tag-case {
+  background-color: #eb2f96;
+}
+
+/* ========== 空状态 ========== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 60rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+}
