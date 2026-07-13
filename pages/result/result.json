@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "识别结果",
+  "usingComponents": {
+    "risk-badge": "/components/risk-badge/risk-badge"
+  }
+}
