@@ -1,0 +1,163 @@
+<!-- 乡农合规通 - 合规清单页 -->
+<view class="page-container">
+
+  <!-- 1. 顶部免责声明提示框 -->
+  <view class="disclaimer-box">
+    <view class="disclaimer-content">
+      <text class="disclaimer-icon">⚠</text>
+      <text class="disclaimer-text">以下清单由AI生成，仅供参考，具体以当地监管部门现场审核为准。</text>
+    </view>
+    <!-- 勾选框：需勾选才能查看内容 -->
+    <view class="disclaimer-check" bindtap="toggleDisclaimer">
+      <view class="checkbox {{disclaimerChecked ? 'checked' : ''}}">
+        <text wx:if="{{disclaimerChecked}}" class="check-icon">✓</text>
+      </view>
+      <text class="check-label">我已知晓，查看清单</text>
+    </view>
+  </view>
+
+  <!-- 2. 产品信息摘要卡片 -->
+  <view class="info-card">
+    <view class="info-row">
+      <text class="info-label">产品名称</text>
+      <text class="info-value">{{productName}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">风险等级</text>
+      <!-- 风险等级徽章组件 -->
+      <risk-badge level="{{riskLevel}}"></risk-badge>
+    </view>
+    <view class="info-row">
+      <text class="info-label">产品类别</text>
+      <text class="info-value">{{category}}</text>
+    </view>
+  </view>
+
+  <!-- 3. 地域选择区域 -->
+  <view class="region-section">
+    <!-- 发货地 -->
+    <view class="region-row">
+      <text class="region-label">发货地</text>
+      <view class="region-picker-wrap">
+        <province-picker bindchange="onFromChange"></province-picker>
+      </view>
+    </view>
+    <!-- 销售地 -->
+    <view class="region-row">
+      <text class="region-label">销售地</text>
+      <view class="region-picker-wrap">
+        <province-picker bindchange="onToChange"></province-picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- 4. 生成清单按钮（条件渲染：免责勾选 + 两地都选了） -->
+  <view class="btn-generate-wrap" wx:if="{{disclaimerChecked && provinceFrom && provinceTo}}">
+    <button
+      class="btn-generate {{generating ? 'disabled' : ''}}"
+      bindtap="generateChecklist"
+      disabled="{{generating}}"
+    >
+      {{generating ? '生成中...' : '生成合规清单'}}
+    </button>
+  </view>
+
+  <!-- 5. 清单内容区域（条件渲染：生成后显示） -->
+  <block wx:if="{{checklistData}}">
+
+    <!-- 5.1 证照办理指引卡片 -->
+    <view class="checklist-card">
+      <view class="card-title">证照办理指引</view>
+      <view
+        class="license-item"
+        wx:for="{{checklistData.required_licenses}}"
+        wx:key="name"
+      >
+        <view class="license-info">
+          <text class="license-name">{{item.name}}</text>
+          <text class="license-dept">办理部门：{{item.department}}</text>
+          <text class="license-basis">法理依据：{{item.legal_basis}}</text>
+        </view>
+        <view class="license-duration">{{item.duration}}</view>
+      </view>
+    </view>
+
+    <!-- 5.2 标签规范要求卡片 -->
+    <view class="checklist-card">
+      <view class="card-title">标签规范要求</view>
+      <view
+        class="label-item"
+        wx:for="{{checklistData.label_requirements}}"
+        wx:key="content"
+      >
+        <text class="label-content">{{item.content}}</text>
+        <text class="label-standard">对应标准：{{item.standard}}</text>
+      </view>
+    </view>
+
+    <!-- 5.3 宣传话术规范卡片 -->
+    <view class="checklist-card">
+      <view class="card-title">宣传话术规范</view>
+
+      <!-- 禁用词列表 -->
+      <view class="word-section">
+        <text class="word-section-title">禁用词</text>
+        <view class="word-tags">
+          <view
+            class="tag tag-forbidden"
+            wx:for="{{checklistData.forbidden_words}}"
+            wx:key="*this"
+          >
+            <text class="tag-text">{{item.word || item}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 建议替代词列表 -->
+      <view class="word-section">
+        <text class="word-section-title">建议替代词</text>
+        <view class="word-tags">
+          <view
+            class="tag tag-suggest"
+            wx:for="{{checklistData.suggested_words}}"
+            wx:key="*this"
+          >
+            <text class="tag-text">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </block>
+
+  <!-- 6. 底部操作按钮区域（固定底部） -->
+  <view class="bottom-bar" wx:if="{{checklistData}}">
+    <button class="btn-bottom btn-download" bindtap="downloadChecklist">下载清单</button>
+    <button class="btn-bottom btn-voice" bindtap="playVoice">语音播报</button>
+  </view>
+
+  <!-- 7. 职业打假高危词告警弹出层 -->
+  <view class="warning-mask" wx:if="{{showWarning}}" bindtap="closeWarning">
+    <view class="warning-popup" catchtap="">
+      <!-- 红色边框警告框标题 -->
+      <view class="warning-header">
+        <text class="warning-title-icon">⚠</text>
+        <text class="warning-title">职业打假高危词告警</text>
+      </view>
+      <view class="warning-body">
+        <text class="warning-desc">以下词汇属于职业打假人重点关注的敏感词，使用可能面临法律风险：</text>
+        <!-- 高危敏感词列表 -->
+        <view class="warning-words">
+          <view
+            class="warning-word-tag"
+            wx:for="{{checklistData.high_risk_words || forbiddenWords}}"
+            wx:key="*this"
+          >{{item.word || item}}</view>
+        </view>
+      </view>
+      <!-- 关闭按钮 -->
+      <button class="warning-close-btn" bindtap="closeWarning">我知道了</button>
+    </view>
+  </view>
+
+</view>
