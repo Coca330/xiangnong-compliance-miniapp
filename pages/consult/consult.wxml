@@ -1,0 +1,116 @@
+<!-- 专家咨询页面 -->
+<view class="consult-container">
+
+  <!-- 顶部说明区域 -->
+  <view class="notice-card">
+    <view class="notice-title">如有复杂合规问题，可留言咨询专业律师</view>
+    <view class="notice-tip">我们将在24小时内回复</view>
+  </view>
+
+  <!-- 留言表单区域 -->
+  <view class="form-card">
+    <!-- 问题类型选择 -->
+    <view class="form-item">
+      <view class="form-label">问题类型</view>
+      <picker
+        mode="selector"
+        range="{{questionTypes}}"
+        value="{{typeIndex}}"
+        bindchange="onTypeChange"
+      >
+        <view class="picker-value {{typeIndex >= 0 ? '' : 'placeholder'}}">
+          {{typeIndex >= 0 ? questionTypes[typeIndex] : '请选择问题类型'}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 问题描述 -->
+    <view class="form-item">
+      <view class="form-label">问题描述</view>
+      <textarea
+        class="form-textarea"
+        placeholder="请详细描述您的合规问题..."
+        placeholder-class="textarea-placeholder"
+        value="{{content}}"
+        bindinput="onContentInput"
+        maxlength="500"
+        auto-height="{{false}}"
+      />
+      <!-- 字数统计 -->
+      <view class="char-count">{{content.length}}/500</view>
+    </view>
+
+    <!-- 图片上传（可选，最多3张） -->
+    <view class="form-item">
+      <view class="form-label">图片上传（选填，最多3张）</view>
+      <view class="image-upload-area">
+        <!-- 已上传的图片 -->
+        <view class="image-item" wx:for="{{images}}" wx:key="index">
+          <image class="upload-image" src="{{item}}" mode="aspectFill" />
+          <!-- 删除按钮 -->
+          <view class="image-delete" data-index="{{index}}" bindtap="deleteImage">
+            <text class="delete-icon">✕</text>
+          </view>
+        </view>
+        <!-- 添加图片按钮（未满3张时显示） -->
+        <view
+          class="image-add"
+          wx:if="{{images.length < 3}}"
+          bindtap="chooseImage"
+        >
+          <text class="add-icon">+</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button
+      class="submit-btn"
+      bindtap="submitQuestion"
+      disabled="{{submitting}}"
+      loading="{{submitting}}"
+    >
+      提交咨询
+    </button>
+  </view>
+
+  <!-- 历史留言列表 -->
+  <view class="history-section" wx:if="{{historyList.length > 0}}">
+    <view class="section-title">历史留言</view>
+    <view class="history-list">
+      <view
+        class="history-card"
+        wx:for="{{historyList}}"
+        wx:key="id"
+        data-index="{{index}}"
+        bindtap="toggleHistory"
+      >
+        <!-- 卡片头部：问题类型 + 状态 + 时间 -->
+        <view class="history-header">
+          <view class="history-type-tag">{{item.questionType}}</view>
+          <!-- 状态标签：已回复绿色 / 待回复灰色 -->
+          <view class="history-status {{item.status === '已回复' ? 'status-replied' : 'status-pending'}}">
+            {{item.status}}
+          </view>
+          <view class="history-time">{{item.time}}</view>
+        </view>
+        <!-- 问题内容（截取前两行） -->
+        <view class="history-content">{{item.content}}</view>
+        <!-- 展开的回复内容 -->
+        <view class="history-reply" wx:if="{{item.expanded && item.reply}}">
+          <view class="reply-divider"></view>
+          <view class="reply-label">专家回复：</view>
+          <view class="reply-text">{{item.reply}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部企业微信客服按钮 -->
+  <view class="wechat-btn-wrapper">
+    <button class="wechat-btn" bindtap="addWechat">
+      添加企业微信客服
+    </button>
+  </view>
+
+</view>
