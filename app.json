@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/scan/scan",
+    "pages/result/result",
+    "pages/checklist/checklist",
+    "pages/templates/templates",
+    "pages/knowledge/knowledge",
+    "pages/consult/consult",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2B8C5A",
+    "navigationBarTitleText": "乡农合规通",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F6F8",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#2B8C5A",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/knowledge/knowledge",
+        "text": "知识库",
+        "iconPath": "images/tab-knowledge.png",
+        "selectedIconPath": "images/tab-knowledge-active.png"
+      },
+      {
+        "pagePath": "pages/templates/templates",
+        "text": "模板",
+        "iconPath": "images/tab-template.png",
+        "selectedIconPath": "images/tab-template-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab-mine.png",
+        "selectedIconPath": "images/tab-mine-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2"
+}
