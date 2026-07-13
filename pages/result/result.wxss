@@ -1,0 +1,258 @@
+/**
+ * 识别结果页样式 - 乡农合规通
+ */
+
+/* 顶部图片展示 */
+.result-image-wrap {
+  width: 90%;
+  margin: 30rpx auto 0;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.result-image {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 16rpx;
+}
+
+/* ========== 识别结果卡片 ========== */
+.result-card {
+  margin: 24rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  padding: 32rpx;
+}
+
+/* 产品名称 */
+.product-name {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 12rpx;
+}
+
+/* 产品类别 */
+.product-category {
+  font-size: 26rpx;
+  color: #888888;
+  margin-bottom: 20rpx;
+}
+
+/* 风险等级行 */
+.risk-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.risk-label {
+  font-size: 28rpx;
+  color: #666666;
+  margin-right: 12rpx;
+}
+
+/* ========== 行动指引 ========== */
+.action-guide {
+  padding: 24rpx;
+  border-left: 4rpx solid #52C41A;
+  background: #F6FFED;
+  border-radius: 0 12rpx 12rpx 0;
+  margin-top: 8rpx;
+}
+
+.action-guide-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.action-guide-text {
+  font-size: 26rpx;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* 绿色风险 - 行动指引样式 */
+.action-guide-green {
+  background: #F6FFED;
+  border-left-color: #52C41A;
+}
+
+/* 黄色风险 - 行动指引样式 */
+.action-guide-yellow {
+  background: #FFFBE6;
+  border-left-color: #FAAD14;
+}
+
+/* 红色风险 - 行动指引样式 */
+.action-guide-red {
+  background: #FFF2F0;
+  border-left-color: #FF4D4F;
+}
+
+/* ========== 法律依据折叠面板 ========== */
+.legal-section {
+  margin: 0 24rpx 24rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.legal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 32rpx;
+}
+
+.legal-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* 箭头图标 */
+.legal-arrow {
+  font-size: 22rpx;
+  color: #999999;
+  transition: transform 0.3s ease;
+}
+
+/* 展开时箭头旋转 */
+.legal-arrow.arrow-up {
+  transform: rotate(90deg);
+}
+
+.legal-arrow.arrow-down {
+  transform: rotate(0deg);
+}
+
+/* 折叠内容 */
+.legal-body {
+  padding: 0 32rpx 28rpx;
+}
+
+.legal-content {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* ========== 手动选择区域 ========== */
+.manual-section {
+  margin: 0 24rpx 24rpx;
+  background: #FFFBE6;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.manual-tip {
+  font-size: 26rpx;
+  color: #AD6800;
+  margin-bottom: 20rpx;
+}
+
+/* picker 显示区域 */
+.picker-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.picker-arrow {
+  font-size: 20rpx;
+  color: #999999;
+}
+
+/* 手动确认按钮 */
+.btn-confirm-manual {
+  width: 100%;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #ffffff;
+  background: #FAAD14;
+  border-radius: 12rpx;
+}
+
+.btn-confirm-manual:active {
+  background: #d99510;
+}
+
+/* ========== 底部操作区域 ========== */
+.bottom-action {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 绿色实心主按钮 */
+.btn-primary {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2B8C5A;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn-primary:active {
+  background: #237a4d;
+}
+
+/* 操作行（语音播报 + 重新识别） */
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 描边按钮（语音播报） */
+.btn-outline {
+  width: 48%;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #2B8C5A;
+  border: 2rpx solid #2B8C5A;
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.btn-outline:active {
+  background: #f0faf5;
+}
+
+/* 文字链接（重新识别） */
+.btn-text {
+  font-size: 28rpx;
+  color: #999999;
+  padding: 16rpx 0;
+}
+
+.btn-text:active {
+  color: #666666;
+}
