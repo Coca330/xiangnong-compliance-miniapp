@@ -1,0 +1,64 @@
+<!--
+  首页 - 乡农合规通
+  核心入口：拍照识别、历史记录、快捷功能、语音播报
+-->
+<view class="container">
+
+  <!-- ====== 顶部Slogan区域：绿色渐变背景 + 标语 ====== -->
+  <view class="slogan-section">
+    <text class="slogan-title">拍照三秒，合规知道</text>
+    <text class="slogan-subtitle">AI识别农产品合规风险，从"不敢卖"到"放心卖"</text>
+  </view>
+
+  <!-- ====== 核心功能入口：拍照识别大按钮（适配中老年用户） ====== -->
+  <view class="scan-section">
+    <button class="scan-btn" bindtap="goToScan">拍照识别</button>
+  </view>
+
+  <!-- ====== 历史识别记录区域 ====== -->
+  <view class="history-section">
+    <view class="section-header">
+      <text class="section-title">最近识别</text>
+    </view>
+
+    <!-- 有记录时：列表展示 -->
+    <view class="record-list" wx:if="{{hasRecord}}">
+      <view class="record-item" wx:for="{{records}}" wx:key="scan_id">
+        <!-- 左侧：产品名称 + 识别时间 -->
+        <view class="record-info">
+          <text class="record-name">{{item.product_name}}</text>
+          <text class="record-time">{{item.created_at}}</text>
+        </view>
+        <!-- 右侧：风险等级徽章 -->
+        <risk-badge level="{{item.risk_level}}" />
+      </view>
+    </view>
+
+    <!-- 空状态：引导用户拍照 -->
+    <view class="empty-state" wx:else>
+      <text class="empty-text">暂无识别记录，点击上方按钮开始</text>
+    </view>
+  </view>
+
+  <!-- ====== 快捷入口：三列图标按钮 ====== -->
+  <view class="shortcut-section">
+    <view class="shortcut-item" bindtap="goToChecklist">
+      <text class="shortcut-icon">📋</text>
+      <text class="shortcut-label">合规清单</text>
+    </view>
+    <view class="shortcut-item" bindtap="goToTemplates">
+      <text class="shortcut-icon">📷</text>
+      <text class="shortcut-label">模板下载</text>
+    </view>
+    <view class="shortcut-item" bindtap="goToKnowledge">
+      <text class="shortcut-icon">📚</text>
+      <text class="shortcut-label">知识库</text>
+    </view>
+  </view>
+
+  <!-- ====== 语音播报悬浮按钮：右下角固定定位 ====== -->
+  <view class="voice-fab" bindtap="playVoice" wx:if="{{hasRecord}}">
+    <text class="voice-icon">🔊</text>
+  </view>
+
+</view>
