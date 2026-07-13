@@ -1,0 +1,18 @@
+<!-- 省份选择器组件 -->
+<!-- props: placeholder - 占位提示文字 -->
+<!-- event: change - 选择变更事件，返回 {value: "省份数"} -->
+
+<view class="province-picker">
+  <!-- 触发按钮（模拟picker样式） -->
+  <picker
+    mode="selector"
+    range="{{provinces}}"
+    value="{{selectedIndex}}"
+    bindchange="onPickerChange"
+  >
+    <view class="province-picker__trigger {{value ? '' : 'province-picker__trigger--placeholder'}}">
+      <text class="province-picker__text">{{value || placeholder}}</text>
+      <text class="province-picker__arrow">▼</text>
+    </view>
+  </picker>
+</view>
