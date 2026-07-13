@@ -1,0 +1,462 @@
+/**
+ * 乡农合规通 - 合规清单页样式
+ */
+
+/* 页面容器 */
+.page-container {
+  padding-bottom: 140rpx;
+  background-color: #F5F6F8;
+  min-height: 100vh;
+}
+
+/* ========== 1. 免责声明 ========== */
+.disclaimer-box {
+  margin: 24rpx;
+  padding: 24rpx;
+  background-color: #FFFBE6;
+  border-left: 4rpx solid #FAAD14;
+  border-radius: 8rpx;
+}
+
+.disclaimer-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.disclaimer-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.disclaimer-text {
+  font-size: 26rpx;
+  color: #8C6A00;
+  line-height: 1.6;
+}
+
+/* 免责勾选框区域 */
+.disclaimer-check {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #FFE58F;
+}
+
+/* 自定义勾选框 - 默认未选中 */
+.checkbox {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #D9D9D9;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+/* 勾选框 - 选中状态（绿色勾选） */
+.checkbox.checked {
+  background-color: #2B8C5A;
+  border-color: #2B8C5A;
+}
+
+.check-icon {
+  color: #FFFFFF;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.check-label {
+  font-size: 26rpx;
+  color: #595959;
+}
+
+/* ========== 2. 产品信息摘要卡片 ========== */
+.info-card {
+  margin: 24rpx;
+  padding: 24rpx;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 0;
+}
+
+.info-row:not(:last-child) {
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #8C8C8C;
+  flex-shrink: 0;
+  margin-right: 24rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #262626;
+  font-weight: 500;
+}
+
+/* ========== 3. 地域选择区域 ========== */
+.region-section {
+  margin: 24rpx;
+  padding: 24rpx;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 两行布局 */
+.region-row {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.region-row:not(:last-child) {
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+/* 标签固定80rpx宽度 */
+.region-label {
+  width: 80rpx;
+  font-size: 28rpx;
+  color: #595959;
+  flex-shrink: 0;
+}
+
+/* picker占剩余宽度 */
+.region-picker-wrap {
+  flex: 1;
+  margin-left: 16rpx;
+}
+
+/* ========== 4. 生成清单按钮 ========== */
+.btn-generate-wrap {
+  padding: 24rpx;
+}
+
+.btn-generate {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #2B8C5A;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 600;
+  border-radius: 44rpx;
+  text-align: center;
+  border: none;
+}
+
+.btn-generate.disabled {
+  opacity: 0.6;
+}
+
+.btn-generate::after {
+  border: none;
+}
+
+/* ========== 5. 清单卡片通用样式 ========== */
+.checklist-card {
+  margin: 24rpx;
+  padding: 24rpx;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #262626;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+  margin-bottom: 20rpx;
+}
+
+/* ========== 5.1 证照列表 ========== */
+.license-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+
+.license-item:last-child {
+  border-bottom: none;
+}
+
+/* 左边证照信息 */
+.license-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.license-name {
+  font-size: 28rpx;
+  color: #262626;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.license-dept {
+  font-size: 24rpx;
+  color: #595959;
+  margin-bottom: 4rpx;
+}
+
+/* 法理依据 - 灰色小字 */
+.license-basis {
+  font-size: 22rpx;
+  color: #BFBFBF;
+}
+
+/* 右边预计时长标签（绿色） */
+.license-duration {
+  flex-shrink: 0;
+  margin-left: 16rpx;
+  padding: 6rpx 16rpx;
+  background-color: #F6FFED;
+  color: #2B8C5A;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  align-self: center;
+}
+
+/* ========== 5.2 标签规范要求列表 ========== */
+.label-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+
+.label-item:last-child {
+  border-bottom: none;
+}
+
+.label-content {
+  font-size: 28rpx;
+  color: #262626;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+/* 对应GB标准 - 灰色小字 */
+.label-standard {
+  font-size: 22rpx;
+  color: #BFBFBF;
+  display: block;
+}
+
+/* ========== 5.3 宣传话术规范 ========== */
+.word-section {
+  margin-bottom: 24rpx;
+}
+
+.word-section:last-child {
+  margin-bottom: 0;
+}
+
+.word-section-title {
+  font-size: 26rpx;
+  color: #595959;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.word-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+/* 标签通用样式 */
+.tag {
+  border-radius: 8rpx;
+  padding: 8rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-text {
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.tag-risk {
+  font-size: 20rpx;
+  margin-top: 4rpx;
+}
+
+/* 禁用词标签 - 红色背景 */
+.tag-forbidden {
+  background-color: #FFF2F0;
+}
+
+.tag-forbidden .tag-text {
+  color: #CF1322;
+}
+
+.tag-forbidden .tag-risk {
+  color: #FF7875;
+}
+
+/* 建议替代词标签 - 绿色背景 */
+.tag-suggest {
+  background-color: #F6FFED;
+}
+
+.tag-suggest .tag-text {
+  color: #2B8C5A;
+}
+
+/* ========== 6. 底部操作按钮区域 ========== */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 24rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background-color: #FFFFFF;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+  z-index: 100;
+}
+
+.btn-bottom {
+  width: 45%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  border-radius: 40rpx;
+  text-align: center;
+  border: none;
+}
+
+.btn-bottom::after {
+  border: none;
+}
+
+/* 下载清单按钮 */
+.btn-download {
+  background-color: #2B8C5A;
+  color: #FFFFFF;
+}
+
+/* 语音播报按钮 */
+.btn-voice {
+  background-color: #FFFFFF;
+  color: #2B8C5A;
+  border: 2rpx solid #2B8C5A !important;
+}
+
+/* ========== 7. 高危词弹出层 ========== */
+/* 半透明遮罩 */
+.warning-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 红色边框弹窗 - 居中 */
+.warning-popup {
+  width: 620rpx;
+  background-color: #FFFFFF;
+  border: 4rpx solid #FF4D4F;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+/* 弹窗标题 */
+.warning-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28rpx;
+  background-color: #FFF1F0;
+}
+
+.warning-title-icon {
+  font-size: 36rpx;
+  margin-right: 12rpx;
+}
+
+.warning-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #CF1322;
+}
+
+/* 弹窗内容 */
+.warning-body {
+  padding: 28rpx;
+}
+
+.warning-desc {
+  font-size: 26rpx;
+  color: #595959;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+/* 高危敏感词标签列表 */
+.warning-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+/* 高危词标签 - 红色背景 */
+.warning-word-tag {
+  padding: 10rpx 24rpx;
+  background-color: #FF4D4F;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  font-weight: 500;
+  border-radius: 8rpx;
+}
+
+/* 关闭按钮 */
+.warning-close-btn {
+  margin: 24rpx;
+  margin-bottom: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #FF4D4F;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  font-weight: 500;
+  border-radius: 40rpx;
+  text-align: center;
+  border: none;
+}
+
+.warning-close-btn::after {
+  border: none;
+}
