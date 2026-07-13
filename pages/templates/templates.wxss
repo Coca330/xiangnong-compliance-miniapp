@@ -1,0 +1,223 @@
+/**
+ * 乡农合规通 - 模板下载页样式
+ */
+
+/* 页面容器 */
+.page-container {
+  padding-bottom: 100rpx;
+  background-color: #F5F6F8;
+  min-height: 100vh;
+}
+
+/* ========== 1. 顶部说明 ========== */
+.page-desc {
+  padding: 24rpx 24rpx 0;
+}
+
+.page-desc text {
+  font-size: 28rpx;
+  color: #8C8C8C;
+}
+
+/* ========== 2. 分类tabs - 横向滚动 ========== */
+.tabs-scroll {
+  white-space: nowrap;
+  margin: 24rpx 0;
+  background-color: #FFFFFF;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+/* tabs内部容器 - flex不换行 */
+.tabs-inner {
+  display: inline-flex;
+  padding: 0 24rpx;
+}
+
+/* 单个tab项 */
+.tab-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  color: #8C8C8C;
+  flex-shrink: 0;
+  border-radius: 32rpx;
+  margin-right: 16rpx;
+  transition: all 0.2s ease;
+}
+
+/* 选中项 - 绿色背景白色文字 */
+.tab-item.active {
+  background-color: #2B8C5A;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* ========== 3. 模板列表 ========== */
+.template-list {
+  padding: 0 24rpx;
+}
+
+/* 模板卡片 - flex布局 */
+.template-card {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 左侧文件类型图标区域 - 60rpx方形圆角 */
+.file-icon-wrap {
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.file-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 不同文件类型的图标颜色 */
+.file-icon-docx {
+  background-color: rgba(43, 87, 154, 0.1);
+}
+
+.file-icon-xlsx {
+  background-color: rgba(33, 115, 70, 0.1);
+}
+
+.file-icon-pdf {
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+/* 图标内文字颜色 */
+.file-icon-docx .file-icon-text {
+  color: #2B579A;
+}
+
+.file-icon-xlsx .file-icon-text {
+  color: #217346;
+}
+
+.file-icon-pdf .file-icon-text {
+  color: #D32F2F;
+}
+
+.file-icon-text {
+  font-size: 20rpx;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 中间模板信息 - flex-1占剩余宽度 */
+.template-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* 模板名称 - 粗体 */
+.template-name {
+  font-size: 28rpx;
+  color: #262626;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 元信息行：格式标签 + 下载次数 */
+.template-meta {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+/* 文件格式标签 */
+.format-tag {
+  font-size: 20rpx;
+  padding: 2rpx 12rpx;
+  border-radius: 6rpx;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* 格式标签颜色 - 对应图标颜色 */
+.format-tag-docx {
+  color: #2B579A;
+  background-color: rgba(43, 87, 154, 0.08);
+}
+
+.format-tag-xlsx {
+  color: #217346;
+  background-color: rgba(33, 115, 70, 0.08);
+}
+
+.format-tag-pdf {
+  color: #D32F2F;
+  background-color: rgba(211, 47, 47, 0.08);
+}
+
+/* 下载次数 */
+.download-count {
+  font-size: 22rpx;
+  color: #BFBFBF;
+}
+
+/* 右侧下载按钮 - 绿色描边小按钮 */
+.btn-download-small {
+  flex-shrink: 0;
+  padding: 8rpx 24rpx;
+  border: 2rpx solid #2B8C5A;
+  border-radius: 24rpx;
+  margin-left: 16rpx;
+}
+
+.btn-download-text {
+  font-size: 26rpx;
+  color: #2B8C5A;
+  font-weight: 500;
+}
+
+/* ========== 4. 空状态 ========== */
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #BFBFBF;
+}
+
+/* ========== 5. 底部提示 - 固定底部 ========== */
+.bottom-tip {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx 24rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background-color: #FFFFFF;
+  border-top: 1rpx solid #F0F0F0;
+  text-align: center;
+  z-index: 100;
+}
+
+/* 灰色小字居中 */
+.bottom-tip-text {
+  font-size: 22rpx;
+  color: #BFBFBF;
+}
