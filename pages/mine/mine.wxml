@@ -1,0 +1,130 @@
+<!-- 我的页面 -->
+<view class="mine-container">
+
+  <!-- 用户信息区域（绿色渐变背景） -->
+  <view class="user-info-section" bindtap="{{isLoggedIn ? '' : 'goToLogin'}}">
+    <!-- 头像 -->
+    <view class="avatar-wrapper">
+      <image
+        class="avatar"
+        src="{{isLoggedIn && userInfo.avatarUrl ? userInfo.avatarUrl : '/images/default-avatar.png'}}"
+        mode="aspectFill"
+      />
+    </view>
+    <!-- 昵称 -->
+    <view class="user-name">{{isLoggedIn ? userInfo.nickName : '点击登录'}}</view>
+    <!-- 手机号 -->
+    <view class="user-phone">{{isLoggedIn && userInfo.phone ? userInfo.phone : '未绑定手机号'}}</view>
+  </view>
+
+  <!-- 实名认证入口 -->
+  <view class="card-group" style="margin-top: 24rpx;">
+    <view class="menu-item" bindtap="onRealNameAuth">
+      <view class="menu-left">
+        <text class="menu-icon">📋</text>
+        <text class="menu-text">实名认证</text>
+      </view>
+      <view class="menu-right">
+        <text class="auth-status {{isVerified ? 'auth-yes' : 'auth-no'}}">
+          {{isVerified ? '已认证' : '未认证'}}
+        </text>
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="card-group" style="margin-top: 24rpx;">
+    <!-- 识别历史 -->
+    <view class="menu-item" bindtap="goToHistory">
+      <view class="menu-left">
+        <text class="menu-icon">📸</text>
+        <text class="menu-text">识别历史</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-divider"></view>
+
+    <!-- 我的清单 -->
+    <view class="menu-item" bindtap="goToMyChecklist">
+      <view class="menu-left">
+        <text class="menu-icon">📝</text>
+        <text class="menu-text">我的清单</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-divider"></view>
+
+    <!-- 消息通知（带红点） -->
+    <view class="menu-item" bindtap="goToNotification">
+      <view class="menu-left">
+        <text class="menu-icon">🔔</text>
+        <text class="menu-text">消息通知</text>
+      </view>
+      <view class="menu-right">
+        <view class="red-dot" wx:if="{{hasNotification}}"></view>
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他功能列表 -->
+  <view class="card-group" style="margin-top: 24rpx;">
+    <!-- 意见反馈 -->
+    <view class="menu-item" bindtap="goToFeedback">
+      <view class="menu-left">
+        <text class="menu-icon">💬</text>
+        <text class="menu-text">意见反馈</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-divider"></view>
+
+    <!-- 关于我们 -->
+    <view class="menu-item" bindtap="goToAbout">
+      <view class="menu-left">
+        <text class="menu-icon">ℹ️</text>
+        <text class="menu-text">关于我们</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-divider"></view>
+
+    <!-- 用户协议 -->
+    <view class="menu-item" bindtap="goToAgreement">
+      <view class="menu-left">
+        <text class="menu-icon">📜</text>
+        <text class="menu-text">用户协议</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+    <view class="menu-divider"></view>
+
+    <!-- 隐私政策 -->
+    <view class="menu-item" bindtap="goToPrivacy">
+      <view class="menu-left">
+        <text class="menu-icon">🔒</text>
+        <text class="menu-text">隐私政策</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮（仅已登录时显示） -->
+  <view class="logout-section" wx:if="{{isLoggedIn}}">
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </view>
+
+</view>
