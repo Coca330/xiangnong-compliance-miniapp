@@ -1,0 +1,66 @@
+<!-- 法规知识库页面 -->
+<view class="knowledge-container">
+
+  <!-- 搜索栏区域 -->
+  <view class="search-bar">
+    <!-- 搜索图标 -->
+    <view class="search-icon">
+      <text class="icon-search">🔍</text>
+    </view>
+    <!-- 搜索输入框 -->
+    <input
+      class="search-input"
+      placeholder="搜索法规、标准、案例"
+      placeholder-class="search-placeholder"
+      value="{{keyword}}"
+      bindinput="onKeywordInput"
+      bindconfirm="onSearch"
+      confirm-type="search"
+    />
+    <!-- 语音输入按钮 -->
+    <view class="voice-btn" bindtap="onVoiceInput">
+      <text class="voice-icon">🎤</text>
+    </view>
+  </view>
+
+  <!-- 热门分类标签 - 横向滚动 -->
+  <scroll-view class="hot-tags-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="hot-tags-wrapper">
+      <!-- 循环渲染热门标签 -->
+      <view
+        class="hot-tag {{activeTag === item ? 'hot-tag-active' : ''}}"
+        wx:for="{{hotTags}}"
+        wx:key="*this"
+        data-tag="{{item}}"
+        bindtap="onTagClick"
+      >
+        {{item}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 搜索结果/推荐列表 -->
+  <view class="result-list" wx:if="{{resultList.length > 0}}">
+    <view
+      class="result-card"
+      wx:for="{{resultList}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="goToDetail"
+    >
+      <!-- 来源标签（右上角） -->
+      <view class="source-tag source-tag-{{item.sourceType}}">{{item.source}}</view>
+      <!-- 法规名称 -->
+      <view class="result-title">{{item.title}}</view>
+      <!-- 条款摘要（两行省略） -->
+      <view class="result-summary">{{item.summary}}</view>
+    </view>
+  </view>
+
+  <!-- 空状态提示 -->
+  <view class="empty-state" wx:if="{{isSearching && resultList.length === 0}}">
+    <view class="empty-icon">🔍</view>
+    <view class="empty-text">未找到相关法规，换个关键词试试</view>
+  </view>
+
+</view>
