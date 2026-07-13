@@ -1,0 +1,42 @@
+<!--
+  登录页 - 乡农合规通
+  支持手机号快捷登录和微信一键登录
+-->
+<view class="container">
+
+  <!-- ====== 顶部Logo区域：绿色图标 + 应用名称 ====== -->
+  <view class="logo-section">
+    <view class="logo-icon">
+      <text class="logo-emoji">🌾</text>
+    </view>
+    <text class="app-name">乡农合规通</text>
+    <text class="app-desc">AI合规助手，帮您安心卖货</text>
+  </view>
+
+  <!-- ====== 登录按钮区域 ====== -->
+  <view class="login-section">
+
+    <!-- 手机号快捷登录：使用微信getPhoneNumber能力 -->
+    <button
+      class="login-btn phone-btn"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="onGetPhoneNumber"
+    >
+      手机号快捷登录
+    </button>
+
+    <!-- 微信一键登录：调用wx.login静默登录 -->
+    <button class="login-btn wx-btn" bindtap="onWxLogin">
+      微信一键登录
+    </button>
+
+  </view>
+
+  <!-- ====== 底部隐私协议 ====== -->
+  <view class="agreement-section">
+    <text class="agreement-text" bindtap="viewAgreement">
+      登录即代表您同意《用户协议》和《隐私政策》
+    </text>
+  </view>
+
+</view>
