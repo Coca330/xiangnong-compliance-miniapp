@@ -1,0 +1,83 @@
+<!--
+  识别结果页 - 乡农合规通
+  展示AI识别结果、风险等级、法律依据及行动指引
+-->
+
+<!-- 顶部识别图片展示 -->
+<view class="result-image-wrap">
+  <image
+    wx:if="{{imagePath}}"
+    class="result-image"
+    src="{{imagePath}}"
+    mode="aspectFill"
+  />
+</view>
+
+<!-- 识别结果卡片 -->
+<view class="result-card">
+  <!-- 产品名称 -->
+  <view class="product-name">{{productName}}</view>
+
+  <!-- 产品类别 -->
+  <view class="product-category">类别：{{category}}</view>
+
+  <!-- 风险等级 -->
+  <view class="risk-row">
+    <text class="risk-label">风险等级：</text>
+    <risk-badge level="{{riskLevel}}" />
+  </view>
+
+  <!-- 行动指引（根据风险等级显示不同背景色） -->
+  <view class="action-guide action-guide-{{riskLevelEn}}">
+    <text class="action-guide-title">行动指引</text>
+    <text class="action-guide-text">{{actionGuide}}</text>
+  </view>
+</view>
+
+<!-- 法律依据折叠面板 -->
+<view class="legal-section">
+  <view class="legal-header" bindtap="toggleLegal">
+    <text class="legal-title">法律依据</text>
+    <!-- 展开收起箭头 -->
+    <text class="legal-arrow {{showLegal ? 'arrow-up' : 'arrow-down'}}">▶</text>
+  </view>
+
+  <!-- 折叠内容 -->
+  <view class="legal-body" wx:if="{{showLegal}}">
+    <view class="legal-content">{{legalBasis}}</view>
+  </view>
+</view>
+
+<!-- 识别不确定时的手动选择区域 -->
+<view class="manual-section" wx:if="{{!certain}}">
+  <view class="manual-tip">AI不太确定，您可以手动选择品类</view>
+
+  <!-- 三级联动 picker -->
+  <picker
+    mode="multiSelector"
+    range="{{categoryOptions}}"
+    value="{{categoryIndex}}"
+    bindchange="onCategoryChange"
+    bindcolumnchange="onColumnChange"
+  >
+    <view class="picker-display">
+      {{categoryDisplay || '请选择产品品类'}}
+      <text class="picker-arrow">▶</text>
+    </view>
+  </picker>
+
+  <!-- 手动确认按钮 -->
+  <view class="btn-confirm-manual" bindtap="onManualConfirm">确认选择</view>
+</view>
+
+<!-- 底部操作区域 -->
+<view class="bottom-action">
+  <!-- 生成合规清单 大按钮 -->
+  <view class="btn-primary" bindtap="goChecklist">生成合规清单</view>
+
+  <!-- 语音播报 / 重新识别 -->
+  <view class="action-row">
+    <view class="btn-outline" bindtap="playVoice">语音播报</view>
+    <view class="btn-text" bindtap="reScan">重新识别</view>
+  </view>
+</view>
