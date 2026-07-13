@@ -1,0 +1,8 @@
+<!-- 风险等级徽章组件 -->
+<!-- props: level - 风险等级，值为 "绿"、"黄"、"红" -->
+<!-- WXSS不支持中文类名，通过JS的observers将level映射为英文levelClass -->
+
+<view class="risk-badge risk-badge--{{levelClass}}">
+  <view class="risk-badge__dot"></view>
+  <text class="risk-badge__text">{{level}}色风险</text>
+</view>
