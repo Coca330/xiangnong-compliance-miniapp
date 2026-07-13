@@ -1,0 +1,172 @@
+/**
+ * 首页样式 - 乡农合规通
+ * 配色以绿色为主，适配中老年用户的大字体大按钮设计
+ */
+
+/* 页面容器 */
+.container {
+  min-height: 100vh;
+  background-color: #F5F6F8;
+  padding-bottom: 40rpx;
+}
+
+/* ====== 顶部Slogan区域 ====== */
+.slogan-section {
+  /* 绿色渐变背景 */
+  background: linear-gradient(135deg, #2B8C5A, #1E6B42);
+  padding: 80rpx 40rpx 60rpx;
+  text-align: center;
+}
+
+.slogan-title {
+  display: block;
+  color: #ffffff;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+
+.slogan-subtitle {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+/* ====== 核心功能入口：拍照识别按钮 ====== */
+.scan-section {
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: center;
+}
+
+.scan-btn {
+  width: 80%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: linear-gradient(135deg, #2B8C5A, #1E6B42);
+  color: #ffffff;
+  font-size: 34rpx;
+  font-weight: bold;
+  border-radius: 999rpx;
+  text-align: center;
+  border: none;
+  box-shadow: 0 8rpx 24rpx rgba(43, 140, 90, 0.3);
+}
+
+.scan-btn::after {
+  border: none;
+}
+
+/* ====== 历史识别记录区域 ====== */
+.history-section {
+  margin: 20rpx 30rpx;
+}
+
+.section-header {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* 记录列表 */
+.record-list {
+  margin-top: 20rpx;
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 28rpx 30rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.record-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.record-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.record-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80rpx 0;
+  background: #ffffff;
+  border-radius: 16rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+/* ====== 快捷入口：三列等宽布局 ====== */
+.shortcut-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 30rpx 30rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 36rpx 0;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.shortcut-icon {
+  font-size: 56rpx;
+  margin-bottom: 12rpx;
+}
+
+.shortcut-label {
+  font-size: 26rpx;
+  color: #333333;
+}
+
+/* ====== 语音播报悬浮按钮 ====== */
+.voice-fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 200rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2B8C5A, #1E6B42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(43, 140, 90, 0.4);
+  z-index: 100;
+}
+
+.voice-icon {
+  font-size: 44rpx;
+}
