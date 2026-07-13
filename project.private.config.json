@@ -1,0 +1,7 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将在项目编译和上传时被覆盖。",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false
+  }
+}
