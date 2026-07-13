@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "合规清单",
+  "usingComponents": {
+    "province-picker": "/components/province-picker/province-picker",
+    "risk-badge": "/components/risk-badge/risk-badge"
+  }
+}
