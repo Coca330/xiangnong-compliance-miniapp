@@ -1,0 +1,48 @@
+<!--
+  拍照识别页 - 乡农合规通
+  用户拍摄或选择农产品照片，上传至后端进行AI合规风险识别
+-->
+
+<!-- 顶部说明文字 -->
+<view class="scan-tip">
+  请拍摄农产品照片，AI将自动识别合规风险
+</view>
+
+<!-- 图片预览区域 -->
+<view class="preview-area {{imagePath ? 'has-image' : ''}}">
+  <!-- 已选择图片时显示图片 -->
+  <block wx:if="{{imagePath}}">
+    <image
+      class="preview-image"
+      src="{{imagePath}}"
+      mode="aspectFill"
+    />
+    <!-- 右上角删除按钮 -->
+    <view class="delete-btn" bindtap="deleteImage">
+      <text class="delete-icon">×</text>
+    </view>
+  </block>
+
+  <!-- 未选择图片时显示占位提示 -->
+  <view wx:else class="preview-placeholder">
+    <text class="placeholder-icon">📷</text>
+    <text class="placeholder-text">点击下方按钮拍照或从相册选择</text>
+  </view>
+</view>
+
+<!-- 底部操作区域（固定底部） -->
+<view class="bottom-action">
+  <!-- 拍照 / 相册选择 横排 -->
+  <view class="action-row">
+    <view class="btn-outline" bindtap="chooseFromCamera">拍照</view>
+    <view class="btn-outline" bindtap="chooseFromAlbum">从相册选择</view>
+  </view>
+
+  <!-- 开始识别 大按钮 -->
+  <view
+    class="btn-primary {{uploading ? 'btn-disabled' : ''}}"
+    bindtap="startRecognize"
+  >
+    {{uploading ? '识别中...' : '开始识别'}}
+  </view>
+</view>
