@@ -1,0 +1,29 @@
+/* 省份选择器 */
+.province-picker {
+  width: 100%;
+}
+
+.province-picker__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88rpx;
+  padding: 0 24rpx;
+  background: #F5F6F8;
+  border-radius: 16rpx;
+  border: 2rpx solid #E5E5E5;
+}
+
+.province-picker__trigger--placeholder .province-picker__text {
+  color: #999999;
+}
+
+.province-picker__text {
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.province-picker__arrow {
+  font-size: 22rpx;
+  color: #999999;
+}
